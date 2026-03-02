@@ -22,9 +22,11 @@ class ProjectFactory extends Factory
    
     public function configure()
     {
+        
         return $this->afterCreating(function (Project $project) {
             DeploymentCheck::factory()->count(3)->for($project)->create();
             DeploymentCheck::factory()->count(2)->for($project)->completed()->create();
         });
+
     }
 }

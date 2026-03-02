@@ -21,11 +21,13 @@ class DeploymentCheckFactory extends Factory
    
     public function completed(): Factory
     {
+
         return $this->state(function (array $attributes) {
             return [
                 'is_completed' => true,
                 'completed_at' => now(),
             ];
         });
+        
     }
 }
