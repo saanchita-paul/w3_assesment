@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class DeploymentCheck extends Model
 {
@@ -12,4 +14,9 @@ class DeploymentCheck extends Model
         'is_completed',
         'completed_at'
     ];
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
