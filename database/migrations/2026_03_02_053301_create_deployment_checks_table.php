@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('deployment_checks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('project_id')->constrained();
+           $table->id();
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->string('title');
-            $table->boolean('is_completed')->default('false');
+            $table->boolean('is_completed')->default(false);
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
